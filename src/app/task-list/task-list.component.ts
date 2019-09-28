@@ -18,7 +18,7 @@ export class TaskListComponent implements OnInit {
     localStorage.setItem("undoneTasks", JSON.stringify(this.cacheArray));
   }
 
-  deleteTask(event: any): void {
+  deleteTask(event: any, i: any): void {
     this.cacheArray = this.cacheArray.filter((key: CacheArray) => {
       return (event.target.previousSibling.textContent).trim() === key.task ? false : true
     });

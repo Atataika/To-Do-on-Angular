@@ -3,6 +3,6 @@
         <label [ngClass]="task.isDone?'checked':'unchecked'">
             <input type="checkbox" (click)="changeTaskState(i)">{{task.task}}
         </label>
-        <span (click)="deleteTask($event)">X</span>
+        <span (click)="deleteTask($event, i)">X</span>
     </li>
 </ul>

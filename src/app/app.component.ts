@@ -9,8 +9,15 @@ export class AppComponent {
   cacheArray: object[];
   taskString: string;
 
+  generateTaskId() {
+    let number: number;
+    number = Math.random();
+    return `${number.toFixed(5)}`;
+  }
+
   addTask(value: string): void {
     let tmpObj: object = {
+      id: this.generateTaskId(),
       task: value,
       isDone: false
     }
