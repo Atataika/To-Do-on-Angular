@@ -1,1 +1,118 @@
-/* You can add global styles to this file, and also import other style files */
+$mainColor: #559;
+$backGroundColor: #a5b3ef;
+$textColor: #fff;
+
+@mixin button {
+  color: $textColor;
+  background-color: $mainColor;
+  font-size: 20px;
+  padding: 13px;
+  border: 0px;
+  border-radius: 8px;
+  transition: .4s;
+
+  &:hover {
+    background-color: darken($mainColor, 13%);
+  }
+
+  &:focus {
+    outline: 2px dashed $mainColor;
+    background-color: darken($mainColor, 10%);
+  }
+}
+
+body {
+  width: 60%;
+  margin: 0 auto;
+  //   display: flex;
+  text-align: center;
+
+  section {
+    margin-top: 50px;
+    padding: 3em 0;
+    background-color: $backGroundColor;
+    border-radius: 24px;
+
+    h1 {
+      font-family: Courier New, Courier, monospace;
+      font-size: 38px;
+      color: $textColor;
+    }
+
+    .remove-all-btn {
+      @include button;
+    }
+
+    #to-do-input {
+      font-size: 26px;
+      margin: 0 30px;
+      width: 50%;
+      height: 1.3em;
+      border: 0px;
+      border-bottom: 2px dashed lighten($mainColor, 30%);
+      border-radius: 5px;
+
+      &:focus {
+        outline: 2px dashed $mainColor;
+      }
+    }
+
+    .make-to-do-btn {
+      @include button;
+    }
+
+    ul {
+      padding: 0px;
+      margin: 40px 150px 30px;
+    }
+
+    li {
+      font-size: 24px;
+      padding: 8px 0px;
+      list-style: none;
+      word-wrap: break-word;
+
+      &:nth-child(odd) {
+        background-color: $mainColor;
+      }
+
+      &:first-child {
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+      }
+
+      &:last-child {
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+      }
+    }
+
+    span {
+      font-size: 20px;
+      font-family: sans-serif;
+      margin-left: 10px;
+      padding: 1px 6px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: red;
+      }
+    }
+
+    .checked {
+      text-decoration-line: line-through;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  #ToDo-input {
+    width: 35%;
+  }
+}
+
+@media (max-width: 910px) {
+  #ToDo-input {
+    width: 30%;
+  }
+}

@@ -1,0 +1,8 @@
+<ul>
+    <li *ngFor="let task of cacheArray;index as i">
+        <label [ngClass]="task.isDone?'checked':'unchecked'">
+            <input type="checkbox" (click)="changeTaskState(i)">{{task.task}}
+        </label>
+        <span (click)="deleteTask($event)">X</span>
+    </li>
+</ul>
