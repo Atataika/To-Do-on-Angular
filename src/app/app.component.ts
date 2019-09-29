@@ -9,7 +9,7 @@ export class AppComponent {
   cacheArray: object[];
   taskString: string;
 
-  generateTaskId() {
+  generateTaskId(): string {
     let number: number;
     number = Math.random();
     return `${number.toFixed(5)}`;

@@ -18,9 +18,9 @@ export class TaskListComponent implements OnInit {
     localStorage.setItem("undoneTasks", JSON.stringify(this.cacheArray));
   }
 
-  deleteTask(event: any, i: any): void {
+  deleteTask(event: any): void {
     this.cacheArray = this.cacheArray.filter((key: CacheArray) => {
-      return (event.target.previousSibling.textContent).trim() === key.task ? false : true
+      return event.target.parentElement.id === key.id ? false : true
     });
 
     localStorage.setItem("undoneTasks", JSON.stringify(this.cacheArray));
@@ -38,6 +38,7 @@ export class TaskListComponent implements OnInit {
 
 // Я не знаю куда девать интерфейс
 interface CacheArray {
+  id: string;
   task: string;
   isDone: boolean;
 }
