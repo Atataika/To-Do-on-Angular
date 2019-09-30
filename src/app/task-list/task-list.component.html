@@ -1,8 +1,9 @@
-<ul>
-    <li *ngFor="let task of cacheArray;index as i" [id]="task.id">
-        <label [ngClass]="task.isDone?'checked':'unchecked'">
-            <input type="checkbox" [checked]="task.isDone?true:false" (click)="changeTaskState(i)">{{task.task}}
+<ul class="todos-list to-do-section__list">
+    <li class="todos-list__item" *ngFor="let task of cacheArray;index as i" [id]="task.id">
+        <label [ngClass]="task.isDone?'todos-list__text_checked':'todos-list__text_unchecked'">
+            <input class="todos-list__checkbox" type="checkbox" [checked]="task.isDone?true:false"
+                (click)="changeTaskState(i)">{{task.task}}
         </label>
-        <span (click)="deleteTask($event)">X</span>
+        <span class="todos-list__remove-button" (click)="deleteTask($event)">X</span>
     </li>
 </ul>

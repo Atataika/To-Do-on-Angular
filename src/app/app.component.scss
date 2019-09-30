@@ -1,0 +1,36 @@
+@import "variables";
+@import "buttons";
+
+.wrapper {
+    width: 65vw;
+    margin: 50px auto 0;
+}
+
+.to-do-section {
+    background-color: $backGroundColor;
+    text-align: center;
+    padding: 40px 0;
+    border-radius: 24px;
+}
+
+.to-do-section__caption {
+    font-family: Courier New, Courier, monospace;
+    font-size: 38px;
+    color: $textColor;
+}
+
+.to-do-section__input {
+    font-size: 26px;
+    margin: 0 30px;
+    width: 50%;
+    height: 1.3em;
+    border: 0px;
+    border-bottom: 2px dashed lighten($mainColor, 30%);
+    border-radius: 5px;
+
+    &:focus {
+        outline: 2px dashed $mainColor;
+    }
+}
+
+@import "media";

@@ -16,6 +16,10 @@ export class AppComponent {
   }
 
   addTask(value: string): void {
+    if (localStorage.getItem('undoneTasks') !== null) {
+      this.cacheArray = JSON.parse(localStorage.getItem('undoneTasks'));
+    }
+
     let tmpObj: object = {
       id: this.generateTaskId(),
       task: value,

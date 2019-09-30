@@ -1,8 +1,8 @@
-<section>
-    <h1>To Do list</h1>
-    <button class="main-btn remove-all-btn" (click)="removeAllTasks()">Remove all</button>
-    <input type="text" placeholder="Input task name" id="to-do-input" [(ngModel)]="taskString">
-    <button class="main-btn make-to-do-btn" (click)="addTask(taskString)">Make ToDo</button>
+<section class="wrapper to-do-section">
+    <h1 class="to-do-section__caption">To Do list</h1>
+    <button class="button to-do-section__button_first" (click)="removeAllTasks()">Remove all</button>
+    <input class="to-do-section__input" type="text" placeholder="Input task name" [(ngModel)]="taskString">
+    <button class="button to-do-section__button_second" (click)="addTask(taskString)">Make ToDo</button>
     <app-task-list [cacheArray]="cacheArray"></app-task-list>
 </section>
 <router-outlet></router-outlet>

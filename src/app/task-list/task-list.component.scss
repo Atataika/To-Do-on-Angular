@@ -1,0 +1,57 @@
+@import "variables";
+
+.to-do-section__list {
+    padding: 0px;
+    margin: 40px 130px 30px;
+}
+
+.todos-list__item {
+    position: relative;
+    font-size: 24px;
+    padding: 8px 0px;
+    list-style: none;
+    word-wrap: break-word;
+
+    &:nth-child(odd) {
+        background-color: $mainColor;
+    }
+
+    &:first-child {
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+    }
+
+    &:last-child {
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+    }
+}
+
+.todos-list__text_checked {
+    text-decoration-line: line-through;
+}
+
+.todos-list__checkbox {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.todos-list__remove-button {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    font-size: 20px;
+    font-family: sans-serif;
+    padding: 1px 6px;
+    border-radius: 5px;
+    transform: translate(0, -50%);
+    cursor: pointer;
+
+    &:hover {
+        background-color: red;
+    }
+}
+
+@import "media";
