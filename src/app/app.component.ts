@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { increment, reset } from './shared/store/tasks/tasks.actions';
+import { increment, reset } from './core/store/tasks/tasks.actions';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   cacheArray: object[];
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
     const tmpObj: object = {
       id: this.generateTaskId(),
       task: value,
-      isDone: false
+      isDone: false,
     };
 
     if (this.taskString === undefined || this.taskString === '') {

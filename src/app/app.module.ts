@@ -4,11 +4,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { StoreModule } from '@ngrx/store';
-import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { tasksReducer } from './shared/store/tasks/tasks.reducer';
-import { TaskListComponent } from './task-list/task-list.component';
+import { TaskListComponent } from './components/task-list/task-list.component';
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 
 const matImports = [DragDropModule];
 
@@ -16,12 +16,12 @@ const matImports = [DragDropModule];
   declarations: [AppComponent, TaskListComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    StoreModule.forRoot({ tasks: tasksReducer }),
     BrowserAnimationsModule,
-    matImports,
+    RouterModule,
+    CoreModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

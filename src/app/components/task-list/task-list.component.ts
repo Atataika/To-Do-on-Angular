@@ -1,29 +1,30 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { HttpClient } from '@angular/common/http';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
-  styleUrls: ['./task-list.component.scss']
+  styleUrls: ['./task-list.component.scss'],
 })
 export class TaskListComponent implements OnInit {
   @Input() cacheArray: any;
   response: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   changeTaskState(i: any): void {
     this.cacheArray[i].isDone = !this.cacheArray[i].isDone;
 
-    localStorage.setItem("undoneTasks", JSON.stringify(this.cacheArray));
+    localStorage.setItem('undoneTasks', JSON.stringify(this.cacheArray));
   }
 
   deleteTask(event: any): void {
     this.cacheArray = this.cacheArray.filter((key: CacheArray) => {
-      return event.target.parentElement.id === key.id ? false : true
+      return event.target.parentElement.id === key.id ? false : true;
     });
 
-    localStorage.setItem("undoneTasks", JSON.stringify(this.cacheArray));
+    localStorage.setItem('undoneTasks', JSON.stringify(this.cacheArray));
     event.target.parentElement.remove();
   }
 
@@ -33,6 +34,10 @@ export class TaskListComponent implements OnInit {
     //     this.response = response;
     //     console.log(this.response);
     //   })
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.cacheArray, event.previousIndex, event.currentIndex);
   }
 }
 
